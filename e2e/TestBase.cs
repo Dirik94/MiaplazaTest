@@ -1,4 +1,5 @@
 ﻿using Microsoft.Playwright;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using System.Text.Json;
 
 
@@ -12,7 +13,7 @@ namespace MiaplazaTest.e2e
         protected IPlaywright? _playwright;
         public string _baseUrl;
 
-        [OneTimeSetUp]
+        [SetUp]
         public async Task Setup()
         {
             var config = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("C:\\Users\\Greg\\source\\repos\\MiaplazaTest\\Utils\\appsettings.json"));
@@ -46,12 +47,14 @@ namespace MiaplazaTest.e2e
         [TearDown]
         public async Task Teardown()
         {
+            string testName = TestContext.CurrentContext.Test.Name;
+
             if (_page != null)
             {
                 // Stop tracing and export it into a zip archive
                 await _page.Context.Tracing.StopAsync(new TracingStopOptions
                 {
-                    Path = "trace.zip"
+                    Path = $"{testName}_trace.zip"
                 });
             }
 
