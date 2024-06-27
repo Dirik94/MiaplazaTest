@@ -1,0 +1,25 @@
+{
+  "Name": "TestStudentName",
+  "Surname": "TestStudentSurname",
+  "Email": "studentemail@test.com",
+  "Phone": "2222222222",
+  "PreferedName": "Emma",
+  "StudentDateOfBirth": "01-01-2010",
+  "StudentGender": "Female",
+  "MiaPrepAccount": true,
+  "SchoolingType": "Homeschool",
+  "MathOptions": [
+    "Algebra 1",
+    "Geometry"
+  ],
+  "EnglishOptions": [
+    "English 1"
+  ],
+  "ScienceOptions": [
+    "Biology",
+    "Chemistry"
+  ],
+  "Electives": "Test electives",
+  "LearningChallenges": false,
+  "Membership": "Monthly"
+}

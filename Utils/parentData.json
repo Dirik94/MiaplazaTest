@@ -1,0 +1,13 @@
+{
+  "Name": "TestParentName",
+  "Surname": "TestParentSurname",
+  "Email": "testemail@test.com",
+  "phone": "0987654321",
+  "StudentStartDateMonth": "Jul",
+  "StudentStartDateDay": "11",
+  "socialMediaOptions": [
+    "Search Engine (Google, Bing,",
+    "MiaPrep website",
+    "Miacademy website"
+  ]
+}
