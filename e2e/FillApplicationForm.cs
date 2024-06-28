@@ -31,7 +31,7 @@ public class FillApplicationForm : TestBase
     [Test]
     public async Task GoToWebsiteAndFillTheApplicationForm()
     {
-        string jsonFilePath = "C:\\Users\\Greg\\source\\repos\\MiaplazaTest\\Utils\\parentData.json";
+        var jsonFilePath = Path.Combine(projectDirectory, ".\\Utils\\parentData.json");
         string jsonString = File.ReadAllText(jsonFilePath);
         UserData parentInfo = JsonConvert.DeserializeObject<UserData>(jsonString);
 
@@ -47,7 +47,7 @@ public class FillApplicationForm : TestBase
         await _parentInformation.AddPreferredStartDate(parentInfo.StudentStartDateMonth, parentInfo.StudentStartDateDay);
         await _testComponents.ClickNextButton();
 
-        jsonFilePath = "C:\\Users\\Greg\\source\\repos\\MiaplazaTest\\Utils\\studentData.json";
+        jsonFilePath = Path.Combine(projectDirectory, ".\\Utils\\studentData.json");
         jsonString = File.ReadAllText(jsonFilePath);
         StudentData studentInfo = JsonConvert.DeserializeObject<StudentData>(jsonString);
 

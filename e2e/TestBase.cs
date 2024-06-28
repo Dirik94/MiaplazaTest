@@ -1,5 +1,4 @@
 ﻿using Microsoft.Playwright;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using System.Text.Json;
 
 
@@ -12,11 +11,16 @@ namespace MiaplazaTest.e2e
         protected IPage? _page;
         protected IPlaywright? _playwright;
         public string _baseUrl;
+        public string projectDirectory;
 
         [SetUp]
         public async Task Setup()
         {
-            var config = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("C:\\Users\\Greg\\source\\repos\\MiaplazaTest\\Utils\\appsettings.json"));
+            var baseDirectory = AppContext.BaseDirectory;
+            projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
+            var configFilePath = Path.Combine(projectDirectory, ".\\Utils\\appsettings.json");
+            var config = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(configFilePath));
+
             _baseUrl = config!["baseUrl"];
             string browserName = config["browser"];
 
